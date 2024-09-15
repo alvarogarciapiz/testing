@@ -1,2 +1,2 @@
-# testing
-Demo testing python repository :)
+# 👋🏻
+Like the video if you saw this
