@@ -1,5 +1,12 @@
-# frozen_string_literal: true
+# Gemfile
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in hello-world-ruby.gemspec
+# Specify Ruby version
+ruby "3.1.2"
+
+# Specify your gem dependencies below
+gem "rails", "~> 7.0"
+gem "pg", ">= 0.18", "< 2.0"
+
+# Other gems...
