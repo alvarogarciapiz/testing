@@ -1,4 +1,4 @@
-name: go Build and Deploy Workflow
+name: ruby Build and Deploy Workflow
 
 on:
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
         id: validate
         uses: alvarogarciapiz/gawg-validate-build@v1
         with:
-          technology: go
+          technology: ruby
           docker: true
           self-hosted-runner: false
           deployment: none
@@ -37,11 +37,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build go
+      - name: Build ruby
         id: build
         uses: alvarogarciapiz/gawg-build@v1
         with:
-          technology: go
+          technology: ruby
           config-json: ${{ needs.validate-build.outputs.JSON }}
 
   test:
@@ -51,10 +51,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run tests for go
+      - name: Run tests for ruby
         uses: alvarogarciapiz/gawg-test@v1
         with:
-          technology: go
+          technology: ruby
           config-json: ${{ needs.validate-build.outputs.JSON }}
 
   quality:
@@ -93,7 +93,7 @@ jobs:
         with:
           messaging_app: 'none'
           artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
-          technology: go
+          technology: ruby
           docker: true
           self-hosted-runner: false
           deployment: none
